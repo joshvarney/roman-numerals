@@ -6,7 +6,7 @@ class Roman_numerals_test < Minitest::Test
     assert_equal(Hash, letters().class)
   end
   def test_that_hash_has_enough_elements_currently
-    assert_equal(5, letters().count)
+    assert_equal(13, letters().count)
   end
   # def test_that_roman_converter_returns_argument
   #   assert_equal(9, roman_converter(9))
@@ -20,5 +20,12 @@ class Roman_numerals_test < Minitest::Test
     assert_equal("XIX", roman_converter(19))
     assert_equal("XVI", roman_converter(16))
     assert_equal("XVIII", roman_converter(18))
-  end  
+  end
+  def test_that_works_on_bigger_numbers
+    assert_equal("MCMLXXXIX", roman_converter(1989))
+    assert_equal("MLXVI", roman_converter(1066))
+    assert_equal("XLIX", roman_converter(49))
+    assert_equal("CMXCIX", roman_converter(999))
+    assert_equal("DCLXVI", roman_converter(666))
+  end 
 end  
