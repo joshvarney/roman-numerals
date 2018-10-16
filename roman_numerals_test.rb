@@ -27,5 +27,8 @@ class Roman_numerals_test < Minitest::Test
     assert_equal("XLIX", roman_converter(49))
     assert_equal("CMXCIX", roman_converter(999))
     assert_equal("DCLXVI", roman_converter(666))
+  end
+  def test_that_arabic_returns_correct
+    assert_equal("X", arabic_converter("X"))
   end 
 end  

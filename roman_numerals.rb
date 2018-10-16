@@ -34,4 +34,8 @@ def roman_converter(number)
   end
   p answer
   return answer
-end  
+end
+def arabic_converter(numerals)
+  numerals = numerals
+  return numerals  
+end
