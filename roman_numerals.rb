@@ -16,6 +16,24 @@ def letters()
   }
   return roman_stuff
 end
+def arabic()
+  arabic_stuff = {
+    "M" => 1000,
+    "CM" => 900,
+    "D" => 500,
+    "CD" => 400,
+    "C" => 100,
+    "XC" => 90,
+    "L" => 50,
+    "XL" => 40,
+    "X" => 10,
+    "IX" => 9,
+    "V" => 5,
+    "IV" => 4,
+    "I" => 1
+  }
+  return arabic_stuff
+end
 def roman_converter(number)
   number = number
   answer = ""
@@ -36,7 +54,44 @@ end
 def arabic_converter(numerals)
   numerals = numerals
   numerals_array = numerals.split('')
-  p numerals_array
-  return numerals_array
-   
+  counter = 0
+  numerals_array.each do |element|
+    unless numerals_array[counter].class == Integer
+      case element
+      when "C"
+        if numerals_array[counter + 1] == "M"
+          numerals_array[counter] = "CM"
+          numerals_array[counter + 1] = 0
+        elsif numerals_array[counter + 1] == "D"
+          numerals_array[counter] = "CD"
+          numerals_array[counter + 1] = 0   
+        end
+      when "X"
+        if numerals_array[counter + 1] == "C"
+          numerals_array[counter] = "XC"
+          numerals_array[counter + 1] = 0
+        elsif numerals_array[counter + 1] == "L"
+          numerals_array[counter] = "XL"
+          numerals_array[counter + 1] = 0   
+        end 
+      when "I"
+        if numerals_array[counter + 1] == "X"
+          numerals_array[counter] = "IX"
+          numerals_array[counter + 1] = 0
+        elsif numerals_array[counter + 1] == "V"
+          numerals_array[counter] = "IV"
+          numerals_array[counter + 1] = 0   
+        end 
+      end
+    end
+    counter += 1
+  end
+  final_answer = 0
+  numerals_array.each do |things|
+    if things.class == String
+      things = arabic[things]
+    end
+    final_answer += things
+  end                    
+  return final_answer
 end
