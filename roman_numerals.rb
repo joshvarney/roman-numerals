@@ -12,4 +12,7 @@ def letters()
 end
 def roman_converter(number)
   number = number
+  answer = ""
+  answer << letters()[number]
+  return answer
 end  
