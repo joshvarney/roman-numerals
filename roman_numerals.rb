@@ -18,7 +18,6 @@ def letters()
 end
 def roman_converter(number)
   number = number
-  p number
   answer = ""
   letters().each do |key, value|
     unless number < key
@@ -32,10 +31,12 @@ def roman_converter(number)
       end    
     end  
   end
-  p answer
   return answer
 end
 def arabic_converter(numerals)
   numerals = numerals
-  return numerals  
+  numerals_array = numerals.split('')
+  p numerals_array
+  return numerals_array
+   
 end
