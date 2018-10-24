@@ -56,7 +56,23 @@ def arabic_converter(numerals)
   if numerals.class != String
     return "Invalid Input"
   end
+  single_letters = ["M", "D", "C", "L", "X", "V", "I"]
   numerals_array = numerals.split('')
+  counter = 0
+  index_count = 1
+  numerals_array.each do |that|
+    if single_letters.include?(that) == false
+      return "Invalid Input"
+    elsif that == numerals_array[index_count]
+      counter += 1
+      if counter == 3
+        return "Invalid Input"
+      end
+    elsif that != numerals_array[index_count]
+      counter = 0        
+    end
+    index_count += 1  
+  end      
   counter = 0
   numerals_array.each do |element|
     unless numerals_array[counter].class == Integer
