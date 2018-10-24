@@ -53,6 +53,9 @@ def roman_converter(number)
 end
 def arabic_converter(numerals)
   numerals = numerals
+  if numerals.class != String
+    return "Invalid Input"
+  end
   numerals_array = numerals.split('')
   counter = 0
   numerals_array.each do |element|
